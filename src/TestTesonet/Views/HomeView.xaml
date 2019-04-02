@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="TestTesonet.Views.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestTesonet.Views"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             dialog:DialogParticipation.Register="{Binding}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <ContentControl Grid.Row="0" Grid.ColumnSpan="2" x:Name="HomeMenu" />
+        <DockPanel Grid.Row="1" Grid.Column="0" LastChildFill="True">
+            <DataGrid x:Name="Servers" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="false" CanUserReorderColumns="False" VerticalAlignment="Stretch" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Server" Width="*" Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="Distance" Width="Auto" Binding="{Binding Distance, StringFormat={}{0} km}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Foreground="White" Text=".NET Developer Task" FontSize="24" />
+        </StackPanel>
+    </Grid>
+</UserControl>
